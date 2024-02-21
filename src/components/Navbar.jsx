@@ -6,7 +6,7 @@ const Navbar = () => {
 
   const handleLogout = async() => {
     try {
-      const response = await axios.delete(`http://localhost:8080/api/auth/logout`, {
+      const response = await axios.delete(`http://217.196.48.228:8080/api/auth/logout`, {
         headers: {
           'X-API-TOKEN': token
         }

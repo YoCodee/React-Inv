@@ -86,7 +86,7 @@ const Units = () => {
       try {
         const token = localStorage.getItem("AuthToken")
         console.log(token)
-        const response = await axios.get(`http://localhost:8080/api/unit?pageNumber=${currentPage}`, {
+        const response = await axios.get(`http://217.196.48.228:8080/api/unit?pageNumber=${currentPage}`, {
           headers: {
             'X-API-TOKEN': token
           }
@@ -134,13 +134,13 @@ const Units = () => {
     }
     try {
       if(editedRow) {
-        await axios.put(`http://localhost:8080/api/unit/${editedRow.id}`, formDataToSend, {
+        await axios.put(`http://217.196.48.228:8080/api/unit/${editedRow.id}`, formDataToSend, {
           headers: {
             'X-API-TOKEN': token
           }
         })
       }else{
-        const response = await axios.post('http://localhost:8080/api/unit?pageNumber=0', formDataToSend, {
+        const response = await axios.post('http://217.196.48.228:8080/api/unit?pageNumber=0', formDataToSend, {
           headers: {
             'X-API-TOKEN': token
           }
@@ -175,7 +175,7 @@ const Units = () => {
     const handleConfirmDelete = async () => {
       const token = localStorage.getItem("AuthToken");
       try {
-        await axios.delete(`http://localhost:8080/api/unit/${editedRow.id}`, {
+        await axios.delete(`http://217.196.48.228:8080/api/unit/${editedRow.id}`, {
           headers: {
             'X-API-TOKEN': token
           }

@@ -73,14 +73,14 @@ const MasterItem = () => {
           },
       };
 
-      return axios.post('http://localhost:8080/api/upload/csv', formData, config);
+      return axios.post('http://217.196.48.228:8080/api/upload/csv', formData, config);
   };
 
   useEffect(() => {
       const fetchData = async () => {
           try {
               const token = localStorage.getItem("AuthToken");
-              const response = await axios.get(`http://localhost:8080/api/csv`, {
+              const response = await axios.get(`http://217.196.48.228:8080/api/csv`, {
                   headers: {
                       'X-API-TOKEN': token
                   }
@@ -109,7 +109,7 @@ const MasterItem = () => {
   const readCSV = async (fileName) => {
       try {
           const token = localStorage.getItem("AuthToken");
-          const response = await axios.get(`http://localhost:8080/api/csv/${fileName}`, {
+          const response = await axios.get(`http://217.196.48.228:8080/api/csv/${fileName}`, {
               headers: {
                   'X-API-TOKEN': token
               }
@@ -129,7 +129,7 @@ const MasterItem = () => {
   const handleDeleteCSV = async () => {
       try {
           const token = localStorage.getItem("AuthToken");
-          await axios.delete(`http://localhost:8080/api/csv/${uploadedCSV}`, {
+          await axios.delete(`http://217.196.48.228:8080/api/csv/${uploadedCSV}`, {
               headers: {
                   'X-API-TOKEN': token
               }
@@ -152,7 +152,7 @@ const MasterItem = () => {
               throw new Error('Authentication token is missing.');
           }
 
-          const response = await axios.post(`http://localhost:8080/api/csv/${uploadedCSV}`, {}, {
+          const response = await axios.post(`http://217.196.48.228:8080/api/csv/${uploadedCSV}`, {}, {
               headers: {
                   'X-API-TOKEN': token
               }
@@ -301,7 +301,7 @@ const MasterItem = () => {
       const fetchUnits = async () => {
         try {
             const token = localStorage.getItem("AuthToken");
-            const response = await axios.get('http://localhost:8080/api/unit?pageNumber=0', {
+            const response = await axios.get('http://217.196.48.228:8080/api/unit?pageNumber=0', {
                 headers: {
                     'X-API-TOKEN': token
                 }
@@ -320,7 +320,7 @@ const MasterItem = () => {
         try {
           const token = localStorage.getItem("AuthToken");
           console.log(token)
-          const response = await axios.get(`http://localhost:8080/api/item?pageNumber=${currentPage}`, {
+          const response = await axios.get(`http://217.196.48.228:8080/api/item?pageNumber=${currentPage}`, {
             headers: {
               'X-API-TOKEN': token
             }
@@ -369,7 +369,7 @@ const MasterItem = () => {
       try {
         if (editedRow) {
           // Jika ada row yang diedit, kirim permintaan PUT
-          await axios.put(`http://localhost:8080/api/item/${editedRow.id}`, formDataToSend, {
+          await axios.put(`http://217.196.48.228:8080/api/item/${editedRow.id}`, formDataToSend, {
             headers: {
               'X-API-TOKEN': token
             }
@@ -382,7 +382,7 @@ const MasterItem = () => {
           }));
         } else {
           // Jika tidak, kirim permintaan POST
-          const response = await axios.post('http://localhost:8080/api/item?pageNumber=0', formDataToSend, {
+          const response = await axios.post('http://217.196.48.228:8080/api/item?pageNumber=0', formDataToSend, {
             headers: {
               'X-API-TOKEN': token
             }
@@ -439,7 +439,7 @@ const MasterItem = () => {
   const handleConfirmDelete = async () => {
     const token = localStorage.getItem("AuthToken");
     try {
-      await axios.delete(`http://localhost:8080/api/item/${editedRow.id}`, {
+      await axios.delete(`http://217.196.48.228:8080/api/item/${editedRow.id}`, {
         headers: {
           'X-API-TOKEN': token
         }
@@ -470,7 +470,7 @@ const handleUnitChange = (e) => {
 const deleteFile = async (fileName) => {
   try {
       const token = localStorage.getItem("AuthToken");
-      await axios.delete(`http://localhost:8080/api/csv/${fileName}`, {
+      await axios.delete(`http://217.196.48.228:8080/api/csv/${fileName}`, {
           headers: {
               'X-API-TOKEN': token
           }
